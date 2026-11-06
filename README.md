@@ -12,5 +12,7 @@ The analysis will calculate total revenue and identify the reporting period, exa
 ## Project Deliverables
 The repository will contain SQL scripts used to perform the sales analysis, an Excel workbook featuring PivotChart visualizations, and documentation of the findings and recommendations. A recorded presentation will demonstrate the analytical process, key results, and final recommendations.
 
+Presentation: https://yearuptemp-my.sharepoint.com/:p:/g/personal/fkhan_my_yearupunited_org/IQDb3yBc86mcTYeYvc_TEHAGAaamEnj-SM2mvGa_ZPMbU1A?e=t2N1Q2 
+
 ## Sales Territory
 The assigned sales territory for this project is Florida (FL), United States.
