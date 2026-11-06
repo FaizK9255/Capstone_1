@@ -63,9 +63,46 @@ ORDER BY Year, Month, i.Category;
 -- 5) Can you provide a ranking of in-store sales performance by each store in the sales territory, or a 
 -- ranking of online sales performance by state within an online sales territory?
 
-SELECT *
-FROM store_locations
-WHERE State = 'Florida';
+
+SELECT 
+sl.StoreLocation,
+SUM(s.Sale_Amount) Total_Sales,
+RANK() OVER (ORDER BY SUM(s.Sale_Amount) DESC) Ranking
+FROM store_sales s
+INNER JOIN store_locations sl
+	ON s.Store_ID = sl.StoreId
+WHERE sl.State = 'FLorida'
+GROUP BY sl.StoreLocation
+ORDER BY Ranking;
+
+/*
+What is your recommendation for where to focus sales attention in the next quarter?
+
+For EmporiUm's next quarter, I recommend a focus on our two lowest preforming product categories, Books and Stationary/Supplies
+
+Books and Stationary & Supplies have been EmporiUm's lowest preforming categories month by month. Books average
+30 monthly transactions, with $30 being the average transaction amount, and Stationary & Supplies average 66 monthly transactions,
+with only $11 being the average transaction amount.  The estimated monthly revenue for both of these categories is around $830.
+
+Technology and Accessories is an anomoly category that consistently produces the highest transactions and transaction amounts. However,
+being a student bookstore, Stationary is on par with Technology transactions. With such a strong technological front, we must pick up the 
+pace in other categories.
+
+What this means: 
+Stationary & Supplies brings in heavy customer traffic, however it lacks high average transaction amounts. Books, are the inverse. 
+
+My proposal:
+I propose we utilize Stationary/Supplies to push Books as a main product in the upcoming quarter. Books have strong value in purchases
+and have room to grow. The timing ties in as well. The upcoming quarter includes holiday season, harsh weather that keep the public indoors,
+and the start of the spring semester
+
+Approach:
+With heavy traffic from Stationary customers, they will be our main target audience. We can bundle products together, such as books with
+highlighters, journals with pens, etc. We can also run cross item promotions. For example, a discounted book with a minimum purhcase of stationary items
+
+Overall, pulling in more Book transactions with the Stationary traffic is my recommendation moving into the next quarter. 
+
+*/
 
 
 
